@@ -145,3 +145,14 @@ app.get('/refresh_token', function(req, res) {
 
 console.log('Listening on 8888');
 app.listen(8888);
+
+/******************************************************************************* */
+
+
+$(document).ready(function(){
+  // Get value on button click and show alert
+  $("#button-result").click(function(){
+      let myResult = $("input").val();
+      alert(myResult);
+  });
+});
