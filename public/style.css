@@ -32,7 +32,7 @@ h1 {
   font-family: "Poppins", sans-serif;
   width: 500px;
   justify-content: center;
-} 
+}
 
 #loggedin {
   display: inherit;
@@ -59,3 +59,16 @@ h1 {
 .search {
   display: inherit;
 }
+
+/* Code that came with
+
+#login,
+#loggedin {
+  display: none;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+} */
