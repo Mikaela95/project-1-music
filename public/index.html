@@ -43,11 +43,13 @@
             </div>
           </form>
         </div>
-        <div id="image-location"></div>
+        <div class="test-star"></div>
+        <ul id="search-history" class="list-group"></ul>
+        <!-- <div id="image-location"></div>
         <ul id="search-history" class="list-group"></ul>
         <h1 id="favourited-artists">Fav artists</h1>
         <ul id="favourited-list" class="list-group"></ul>
-        <div id="test"></div>
+        <div id="test"></div> -->
       </div>
     </div>
 
@@ -111,6 +113,10 @@
         var access_token = params.access_token,
             refresh_token = params.refresh_token,
             error = params.error;
+
+        /* localStorage.setItem('accessToken', access_token);
+        let accessToken = localStorage.getItem('accessToken'); */
+        window.accessToken = access_token;
 
         if (error) {
           alert('There was an error during the authentication');
