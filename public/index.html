@@ -33,12 +33,21 @@
         </div>
         <div id="search">
           <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="input" placeholder="Search for a song, artist, album or band">
-              <button type="submit" class="btn btn-primary" id="spotify-button">Submit</button>
+            <div class="form-row">
+              <div class="col">
+              <input type="text" class="form-control" id="input" placeholder="Search for an artist">
+              </div>           
+              <div class="col">
+                <button type="submit" class="btn btn-primary" id="spotify-button">Search</button>
+              </div>
             </div>
           </form>
         </div>
+        <div id="image-location"></div>
+        <ul id="search-history" class="list-group"></ul>
+        <h1 id="favourited-artists">Fav artists</h1>
+        <ul id="favourited-list" class="list-group"></ul>
+        <div id="test"></div>
       </div>
     </div>
 
@@ -122,7 +131,7 @@
                   userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
                   $('#login').hide();
-                  $('#loggedin').show();
+                  $('#loggedin').hide();
                   $('#search').show();
                 }
             });
