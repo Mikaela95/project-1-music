@@ -35,7 +35,7 @@ const getAccessToken = () => {
 };
 
 // Test ajax - GET requests
-const getMethod = () => {
+/* const getMethod = () => {
   $("#test").on("click", function (e) {
     e.preventDefault();
     $.ajax({
@@ -53,7 +53,7 @@ const getMethod = () => {
     });
     console.log("testing http requests");
   });
-};
+}; */
 
 let favArray = [];
 // Search for a song
@@ -72,8 +72,9 @@ const searchArtist = () => {
           "BQCZcXmy79s8fYe7Ny-nQikEjjD2zebBBxwsf4X26zIkxMwT96hSCPyhd_bdFVu5qiw36Pmtqm3k8OVvu4znYkqvN9_k5KNWdbxOc64XTMPoe6r36rzBqBm4u0rgDd1AdHknmaO5AbSrywPUhkLu7p15jycG_EM",
       },
       success: function (response) {
+        console.log(response);
         let imageArtist = response.artists.items[0].images[0].url;
-        //let artistGenre = response.artists.items[0].genres;
+        let idArtist = response.artists.items[0].id;
         $("#image-location").html(
           `<h1>Top 5 results: ${queryArtist}</h1> <img src=${imageArtist} />`
         );
@@ -93,20 +94,20 @@ const searchArtist = () => {
           e.preventDefault();
           let result = $(this).attr("value");
           favArray.push(result);
-          if(favArray !== undefined){
-            //$("favourited-artists").hide();
-            console.log("something in the array")
-          }
-          $("#test").append(`<h1>${result}</h1> <Button type="button" class="btn btn-danger">Remove from favourites</Button>`);
-          console.log(favArray);
-        });
-
-        // Remove favourite items from array
-        $(`#${queryArtist}`).on("click", function (e) {
-          e.preventDefault();
           
-          $("#test").append(`<h1>${result}</h1> <Button type="button" class="btn btn-danger">Remove from favourites</Button>`);
+          $("#test").append(
+            `<div class="fav-element" ><h1>${result}</h1> <Button type="button" class="btn btn-danger" id="${idArtist}" >Remove from favourites</Button></div>`
+          );
           console.log(favArray);
+
+          // Remove favourite items from array
+          $(`#${idArtist}`).on("click", function (e) {
+            e.preventDefault();
+            
+            //$("#test").append(`<h1>${result}</h1> <Button type="button" class="btn btn-danger">Remove from favourites</Button>`);
+            console.log("Remove button is clicked");
+            $(`.fav-element`).remove();
+          });
         });
 
       },
