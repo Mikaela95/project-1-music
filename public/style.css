@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  position: relative;
+  position: static;
 }
 
 h1,
@@ -61,26 +61,20 @@ h2 {
   display: inherit;
 }
 
-#image-location img {
+#artist-thumbnail img {
   max-width: 15rem;
-  display: inline-flex;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#image-location h1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+
 }
 
-.bi.bi-star {
-  fill: white;
-}
+/* #artist-thumbnail h1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} */
 
-.checkbox label::after{
-  color: aqua;
-}
 
 /* Code that came with
 

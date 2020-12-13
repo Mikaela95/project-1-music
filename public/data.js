@@ -14,9 +14,15 @@ $("#search").on("click", function (e) {
     type: "GET",
     headers: {
       // Retrieve access token from window - (global variable)
-      Authorization: "Bearer " + accessToken,
+      Authorization:
+        "Bearer " +
+        "BQDiv2YRIILV0lG8ee-ip3DsnuwMyaOITK-whZNul54BNJn3P5wlVwkkLx3nIatG0wbzyvcOKwWNXNMLOD7LaagCwwDseHbHZPnb3bvpZBRpZWZcOWGaijvEOKux9_olKKUw74A6Dbuulubcxqy0Xag2Xj0j_YU",
     },
     success: function (response) {
+      let imageArtist = response.artists.items[0].images[0].url;
+      $("#artist-thumbnail").html(
+        `<h1>Top Result: ${queryArtist}</h1> <img src=${imageArtist} />`
+      );
       return addToList(queryArtist, response);
     },
   });
@@ -25,8 +31,6 @@ $("#search").on("click", function (e) {
 // Add to list
 const addToList = (queryArtist, queryResponse) => {
   let idArtist = queryResponse.artists.items[0].id;
-  // Push to array
-  // searchArtist.push(queryArtist);
 
   // Append to list in the DOM - include id and artists name
   $("#search-history").append(
@@ -44,20 +48,15 @@ const addToList = (queryArtist, queryResponse) => {
 // Add to favourites
 const addToFavourites = (artistClicked) => {
   // Show once called - need to add verification
-  $(".favourite-container").show();
-
   $("#favourited-list").append(
     `<li class="list-group-item" id=${artistClicked.id} name=${artistClicked.value}>${artistClicked.value}<button class="btn btn-warning" id="${artistClicked.id}" value="${artistClicked.value}"><span class="fa fa-star"></span></button><button name=${artistClicked.value} class="btn btn-danger"><span class="fa fa-trash"></span></button></li>`
   );
 
+  $(".favourite-container").show();
+
+  // Remove from favourites
   $(`button[name=${artistClicked.value}]`).on("click", function () {
     console.log("button clicked");
     $(`li[name=${artistClicked.value}]`).remove();
   });
-};
-
-// Remove from favourites
-const removeFromFavourites = (itemRemove) => {
-  console.log(itemRemove);
-  console.log("remove from favourites");
 };

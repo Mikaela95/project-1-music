@@ -34,29 +34,26 @@
             Obtain new token using the refresh token
           </button>
         </div>
-        <div id="search">
+        <div class="align-top" id="search">
           <form>
             <div class="form-row">
               <div class="col">
-              <input type="text" class="form-control" id="input" placeholder="Search for an artist">
+                <input type="text" class="form-control" id="input" placeholder="Search for an artist">
               </div>           
-              <div class="col">
+              <div class="col-sm">
                 <button type="submit" class="btn btn-primary" id="spotify-button">Search</button>
-                
               </div>
+              
             </div>
           </form>
+          <div id="artist-thumbnail"></div>
         </div>
-        <div class="test-star"></div>
-        <ul id="search-history" class="list-group"></ul>
+        <ul id="search-history" class="list-group">
+        </ul>
         <div class="favourite-container">
           <h1>Favourite Artists</h1>
           <ul id="favourited-list" class="list-group"></ul>
         </div>
-        <!-- <div id="image-location"></div>
-        <ul id="search-history" class="list-group"></ul>
-        <h1 id="favourited-artists">Fav artists</h1>
-        <div id="test"></div> -->
       </div>
     </div>
 
@@ -121,8 +118,6 @@
             refresh_token = params.refresh_token,
             error = params.error;
 
-        /* localStorage.setItem('accessToken', access_token);
-        let accessToken = localStorage.getItem('accessToken'); */
         window.accessToken = access_token;
 
         if (error) {
